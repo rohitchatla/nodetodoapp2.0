@@ -108,6 +108,20 @@ input:checked + .slider:before {
 								<span class="slider round"></span>
 							</label>
 						<% } %>
+						
+						
+						
+						<% if (item.status2 == "doing") { %>
+							<label class="switch">
+								<input type="checkbox" name="check2" checked>
+								<span class="slider round"></span>
+							</label>
+					  	<% } else { %>
+					  		<label class="switch">
+								<input type="checkbox" name="check2">
+								<span class="slider round"></span>
+							</label>
+						<% } %>
 
 					  
 					<button class="btn btn-warning" type="submit" name="submit" value="update">Commit</button>
