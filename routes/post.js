@@ -67,17 +67,23 @@ router.get('/delete/:postId', async (req,res)=>{
 
 //update/commit a Post
 router.post('/update/:postId', async (req,res)=>{//(or)router.put
-	var state;
+	var state,state2;
 
 	if(req.body.check == "on"){//checked
 		state = "done";
 	}else{
 		state = "doing";
 	}
+	
+	if(req.body.check2 == "on"){//checked
+		state2 = "doing";
+	}else{
+		state2 = "to-do";
+	}
 
 	try{
 	const updatedPost=await Post.updateOne({_id:req.params.postId},
-		{$set: {status:state,commit:req.body.commit}});
+		{$set: {status:state,status2:state2,commit:req.body.commit}});
 	res.redirect('/posts');
 	}catch(err){
 		res.json({message:err});
