@@ -78,7 +78,7 @@ router.post('/update/:postId', async (req,res)=>{//(or)router.put
 	if(req.body.check2 == "on"){//checked
 		state2 = "doing";
 	}else{
-		state2 = "to-do";
+		state2 = "todo";
 	}
 
 	try{
