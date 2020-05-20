@@ -11,7 +11,7 @@ const PostSchema=mongoose.Schema({
 		type:String,
 		required:true
 	},
-	status2:{
+	status0:{
 		type:String,
 		required:true
 	},

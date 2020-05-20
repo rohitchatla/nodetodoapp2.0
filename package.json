@@ -4,8 +4,8 @@
   "description": "simple todo app",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "web": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "CV Rohit",
   "license": "ISC",
@@ -14,10 +14,8 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.1.3",
     "express": "^4.17.1",
+    "http": "0.0.1-security",
     "mongoose": "^5.9.15",
     "node-modules": "^1.0.1"
-  },
-  "engines": {
-    "node": "10.x"
   }
 }

@@ -20,10 +20,11 @@ router.get('/',async(req,res)=>{
 //submit a task
 router.post('/', async (req,res)=>{
 
-	
+	//todo-->doing-->done
 	const post =new Post({
 		title: req.body.title,
-		status: 'staging'
+		status: 'doing',
+		status0: 'todo'
 	});
 
 	try{
@@ -67,7 +68,7 @@ router.get('/delete/:postId', async (req,res)=>{
 
 //update/commit a Post
 router.post('/update/:postId', async (req,res)=>{//(or)router.put
-	var state,state2;
+	var state,state0;
 
 	if(req.body.check == "on"){//checked
 		state = "done";
@@ -76,14 +77,14 @@ router.post('/update/:postId', async (req,res)=>{//(or)router.put
 	}
 	
 	if(req.body.check2 == "on"){//checked
-		state2 = "doing";
+		state0 = "doing";
 	}else{
-		state2 = "todo";
+		state0 = "todo";
 	}
 
 	try{
 	const updatedPost=await Post.updateOne({_id:req.params.postId},
-		{$set: {status:state,status2:state2,commit:req.body.commit}});
+		{$set: {status:state,status0:state0,commit:req.body.commit}});
 	res.redirect('/posts');
 	}catch(err){
 		res.json({message:err});
@@ -91,6 +92,5 @@ router.post('/update/:postId', async (req,res)=>{//(or)router.put
 	
 	
 });
-
 
 module.exports=router;
